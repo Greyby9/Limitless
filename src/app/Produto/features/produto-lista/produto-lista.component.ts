@@ -16,4 +16,9 @@ import { ProdutoCartaoComponent } from '../../ui/produto-cartao/produto-cartao.c
 export default class ProdutoListaComponent{
   productsState = inject(ProdutoSateService)
 
+  trocarPage(){
+    this.productsState.trocarPage$.next(2),
+    console.log('sirve')
+  }
+
 }

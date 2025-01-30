@@ -8,8 +8,12 @@ import { produto } from "../../shared/Interfaces/produto.interface";
 export class produtoService extends BaseHttpService{
 
 
-    getProduto(): Observable<produto[]> {
-        return this.http.get<any[]>(`${this.apiUrl}/products`);
+    getProduto(page: number): Observable<produto[]> {
+        return this.http.get<any[]>(`${this.apiUrl}/products`, {
+            params: {
+                limit: page * 5,
+            }
+        });
 
     }
 
