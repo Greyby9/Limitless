@@ -1,0 +1,1 @@
+import{Ja as a,Ka as l,Pa as s,R as n,Sa as r}from"./chunk-GAF4URQL.js";import"./chunk-2VMXMS7J.js";var t=class o{static \u0275fac=function(e){return new(e||o)};static \u0275cmp=n({type:o,selectors:[["app-produto-detalles"]],standalone:!0,features:[r],decls:2,vars:0,template:function(e,d){e&1&&(a(0,"p"),s(1,"produto-detalles works!"),l())}})};export{t as default};
