@@ -2,7 +2,7 @@ import { inject, Injectable } from "@angular/core";
 import { produto } from "../Interfaces/produto.interface";
 import {signalSlice} from "ngxtension/signal-slice";
 import { produtoService } from "../../Produto/data-access/produto.service";
-import { map, startWith, Subject, switchMap } from "rxjs";
+import { catchError, map, of, startWith, Subject, switchMap } from "rxjs";
 
 interface State{
     produtos: produto[];
@@ -25,7 +25,13 @@ export class ProdutoSateService {
       cargarProduto$ = this.trocarPage$.pipe(
         startWith(1),
         switchMap((pagina) => this.produtoService.getProduto(pagina)),
-        map((produtos) => ({produtos, estado: 'success' as const}))
+        map((produtos) => ({produtos, estado: 'success' as const})),
+        catchError(() => {
+          return of({
+            produtos: [],
+            status: 'error' as const,
+          });
+        })
       );
       
  

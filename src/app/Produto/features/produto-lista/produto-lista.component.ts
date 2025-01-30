@@ -17,7 +17,8 @@ export default class ProdutoListaComponent{
   productsState = inject(ProdutoSateService)
 
   trocarPage(){
-    this.productsState.trocarPage$.next(2),
+    const page = this.productsState.state.pagina() + 1;
+    this.productsState.trocarPage$.next(page),
     console.log('sirve')
   }
 
